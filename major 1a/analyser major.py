@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 # load new dataset
 data = pd.read_csv("StudentsPerformance.csv")
+data.columns = data.columns.str.strip().str.lower()
 data.index = range(1, len(data) + 1) # index from 1 inplace of 0 
 
 # rename columns to simple names
@@ -133,4 +134,5 @@ plt.bar(data["Name"].head(10), data["Average"].head(10))
 plt.xticks(rotation=45)
 plt.title("student marks comparision")
 plt.ylabel("average marks")
+
 plt.show()
